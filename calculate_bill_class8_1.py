@@ -1,5 +1,6 @@
 # Course Intro to Programming - Hackbright Academy
 # Ch. 8 Scope - Activity 1
+# by Erika Freiha 03-May-2016
 
 def calculate_tip(bill_amount,tip_percentage):
 	'''Calculate the amount of the Tip by some Percentage of a bill'''
