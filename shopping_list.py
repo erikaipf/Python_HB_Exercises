@@ -1,15 +1,10 @@
 # Course Intro to Programming - Hackbright Academy
 # Ch. 9 List
 # by Erika Freiha 05-May-2016
+# Upgrate some functions, While Loop, Error Exception - 06-May-2016
 
 shopping_list = []
 
-#Option 1: local scope variable 
-def order_list(list_to_order):
-	list_to_order.sort()
-	return list_to_order
-
-#Option 2: global scope variable
 def order_global_list():
 	global shopping_list
 	shopping_list.sort()
@@ -45,46 +40,61 @@ def remove_item_global_list(value_item):
 	else:
 		print "Item is not in the list."
 
-def main():
-	menu_option = 0
-	client_bill_amount = 0
-	client_tip_percentage = 0
+def print_list(show_empty_msg = True):
+	global shopping_list
 	
-	while menu_option != 4:
+	if len(shopping_list) > 0:
+		print "\nYour shopping list:"
+		
+		for x in shopping_list:
+			print " - ", x
+	else:
+		if show_empty_msg == True:
+			print "Your Shopping List is empty."
+def main():
+	
+	while (True):
 		# Show the main menu to the User
-		print ""
-		print "****** Shopping List ******"
-		print "*-------------------------*"
-		print "******** Main Menu ********"
-		print "|  1 - Add Item           |"
-		print "|  2 - Remove Item        |"
-		print "|  3 - Show List          |"
-		print "|  4 - Exit               |"
-		print "***************************"
-
-		# Save the user's choice in a variable
-		menu_option = int(raw_input("Select one option: "))
-
+		print """
+		      "****** Shopping List ******"
+		      "*-------------------------*"
+		      "******** Main Menu ********"
+		      "|  1 - Add Item           |"
+		      "|  2 - Remove Item        |"
+		      "|  3 - Show List          |"
+		      "|  4 - Exit               |"
+		      "***************************"
+		      """
+		try:
+			# Save the user's choice in a variable
+			menu_option = int(raw_input("Select one option: "))
+		except ValueError:
+			menu_option = None
+			
 		if menu_option == 1:
 			# Option 1 - Add Item
-			new_user_item = str((raw_input("Inform the new item to add in the shopping List: ")))
+			new_user_item = str((raw_input("Enter the name of the new item to add: ")))
 			
 			add_item_global_list(new_user_item)
 		elif menu_option == 2:
 			# Option2 - Remove Item
-			user_item = str((raw_input("Inform the item to remove from the shopping List: ")))
+			user_item = str((raw_input("Enter the name of the item to remove: ")))
 			
 			remove_item_global_list(user_item)
 		elif menu_option == 3:
 			# Option 3 - Show List
-			print "\nYour shopping list:"
-			for x in shopping_list:
-				print " - ", x
-		elif menu_option != 4:
-			print "Invalid Option."	
+			print_list()
+		elif menu_option == 4:
+			# Option 4 - Exit
+			# Print the Shopping list
+			print_list(False)
+			# Exit the loop
+			break
+		else:
+			print "Invalid Option! Try again."	
 	
 	# Show final message
-	print "Thank you for use Shopping List!"
+	print "\nThank you for using Shopping List!"
 
 # If is the main program (not imported in other file)
 if __name__ == '__main__':
