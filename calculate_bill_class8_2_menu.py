@@ -2,7 +2,7 @@
 # Ch. 8 Scope - Activity 2 - Extra code: Menu in loop
 # by Erika Freiha 03-May-2016
 
-def calculate_tip(bill_amount, tip_percentage):
+def calculate_tip(bill_amount, tip_percentage = 18):
 	'''Calculate the amount of the Tip by some Percentage of a bill'''
 	return ((bill_amount * tip_percentage) / 100)
 	
@@ -10,7 +10,7 @@ def calculate_total_bill(bill_amount, tip_amount):
 	'''Calculate the total bill with Tip'''
 	return (bill_amount + tip_amount)
 
-def split_bill(bill_amount, number_people):
+def split_bill(bill_amount, number_people = 1):
 	'''Split the bill per person'''
 	return (bill_amount / number_people)
 
