@@ -3,6 +3,7 @@
 # by Erika Freiha 05-May-2016
 # Upgrate some functions, While Loop, Error Exception - 06-May-2016
 
+# Create the empty List
 shopping_list = []
 
 def order_global_list():
@@ -75,7 +76,10 @@ def main():
 			# Option 1 - Add Item
 			new_user_item = str((raw_input("Enter the name of the new item to add: ")))
 			
-			add_item_global_list(new_user_item)
+			if new_user_item == '' or new_user_item.isspace() == True:
+				print "Enter a valid item."
+			else:
+				add_item_global_list(new_user_item)
 		elif menu_option == 2:
 			# Option2 - Remove Item
 			user_item = str((raw_input("Enter the name of the item to remove: ")))
