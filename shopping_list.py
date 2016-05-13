@@ -1,106 +1,80 @@
-# Course Intro to Programming - Hackbright Academy
-# Ch. 9 List
-# by Erika Freiha 05-May-2016
-# Upgrate some functions, While Loop, Error Exception - 06-May-2016
+# Create the dictionary
+shopping_lists = {}
 
-# Create the empty List
-shopping_list = []
+def show_all_stores():
+	# Show all keys and values from the list
+	global shopping_lists
 
-def order_global_list():
-	global shopping_list
-	shopping_list.sort()
-	print shopping_list
-
-def add_item_global_list(new_item):
-	global shopping_list
-
-	# Convert the value of the new item to lower case
-	new_item = new_item.lower()
-
-	# Verify if the new item is already in the list
-	if new_item in shopping_list:
-		print "Item already in the list."
+	if len(shopping_lists) < 1:
+		print 'Your shopping list is empty!'
 	else:
-		# Add item in the list
-		shopping_list.append(new_item)
-		# Sort list
-		order_global_list()
+		print shopping_lists
 
-def remove_item_global_list(value_item):
-	global shopping_list
-	
-	# Convert the value of the new item to lower case
-	value_item = value_item.lower()
+def show_spe_store():
+	# Show the items from a specific store
+	global shopping_lists
 
-	# Verify if the item is in the list
-	if value_item in shopping_list:
-		# Remove the value from the list
-		shopping_list.remove(value_item)
-		# Sort the list
-		shopping_list.sort()
-	else:
-		print "Item is not in the list."
+	spe_store = raw_input("Please enter the name of the store: ")#.lower()
 
-def print_list(show_empty_msg = True):
-	global shopping_list
-	
-	if len(shopping_list) > 0:
-		print "\nYour shopping list:"
-		
-		for x in shopping_list:
-			print " - ", x
-	else:
-		if show_empty_msg == True:
-			print "Your Shopping List is empty."
-def main():
-	
-	while (True):
-		# Show the main menu to the User
-		print """
-		      "****** Shopping List ******"
-		      "*-------------------------*"
-		      "******** Main Menu ********"
-		      "|  1 - Add Item           |"
-		      "|  2 - Remove Item        |"
-		      "|  3 - Show List          |"
-		      "|  4 - Exit               |"
-		      "***************************"
-		      """
-		try:
-			# Save the user's choice in a variable
-			menu_option = int(raw_input("Select one option: "))
-		except ValueError:
-			menu_option = None
-			
-		if menu_option == 1:
-			# Option 1 - Add Item
-			new_user_item = str((raw_input("Enter the name of the new item to add: ")))
-			
-			if new_user_item == '' or new_user_item.isspace() == True:
-				print "Enter a valid item."
-			else:
-				add_item_global_list(new_user_item)
-		elif menu_option == 2:
-			# Option2 - Remove Item
-			user_item = str((raw_input("Enter the name of the item to remove: ")))
-			
-			remove_item_global_list(user_item)
-		elif menu_option == 3:
-			# Option 3 - Show List
-			print_list()
-		elif menu_option == 4:
-			# Option 4 - Exit
-			# Print the Shopping list
-			print_list(False)
-			# Exit the loop
-			break
+	if spe_store in shopping_lists.keys():
+		if len(shopping_lists[spe_store]) < 1:
+			print "%s doesn't have items." % (spe_store)
 		else:
-			print "Invalid Option! Try again."	
-	
-	# Show final message
-	print "\nThank you for using Shopping List!"
+			print spe_store, "\n", shopping_lists[spe_store]
+	else:
+		print "Sorry the store doesn't exist!"
 
-# If is the main program (not imported in other file)
+def add_store():
+	# Add a Store to the list
+	global shopping_lists
+
+	add_store = raw_input("Please add the name of the store: ") #.lower()
+	
+	if add_store in shopping_lists.keys():
+		print "Store already exist!"
+	else:
+		shopping_lists[add_store] = []
+
+# def remove_store(key):
+# 	global shopping_lists
+# 	pass
+
+def add_item_to_store():
+	global shopping_lists
+
+	while True:
+		store = raw_input("Please enter the name of the store: ")#.lower()
+
+		if store not in shopping_lists:
+			print "Sorry the store doesn't exist!"
+		else:
+			add_item = raw_input("Please add the item: ")#.lower()
+
+			shopping_lists[store] = shopping_lists[store] + [add_item,]
+			#shopping_lists[store] = shopping_lists[store].sort
+
+			break
+
+	#must also sort
+	
+
+# def remove_item_from_store(key,value):
+# 	global shopping_lists
+# 	pass
+
+# def main_menu():
+# 	pass
+
+def main():
+	# create the loop
+	# call the menu
+	# test the user option
+	add_store()
+	add_item_to_store()
+	add_item_to_store()
+	add_item_to_store()
+	show_all_stores()
+	show_spe_store()
+
 if __name__ == '__main__':
-    # Execute the code to test
 	main()
