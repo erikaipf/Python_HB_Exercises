@@ -24,13 +24,31 @@ def play_sound(p_sound_number, p_time):
 def main():
 	
 	# Loop to test the random sounds
-	for i in range(10):
-		sound_number = random.randint(1, 4)
-		play_sound(sound_number, 1000)
+	# for i in range(10):
+	# 	sound_number = random.randint(1, 4)
+	# 	play_sound(sound_number, 1000)
 
 	# Print a new line
+	# print ""
+	# play_sound(3, 1300)
+	# play_sound(1, 1300)
+	# play_sound(4, 1300)
+	# print ""
+	# play_sound(3, 1000)
+	# play_sound(1, 1000)
+	# play_sound(4, 1000)
+	# print ""
+	# play_sound(3, 700)
+	# play_sound(1, 700)
+	# play_sound(4, 700)
+
 	print ""
-	play_sound(1, 1000)
+	play_sound(3, 300)
+	play_sound(1, 300)
+	play_sound(4, 300)
+	play_sound(3, 300)
+	play_sound(1, 300)
+	play_sound(4, 300)
 
 if __name__ == '__main__':
 	main()
