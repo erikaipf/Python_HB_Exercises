@@ -36,8 +36,8 @@ class Contact(object):
 		# 	    Twitter Handle : %s
 		# 	  """ % (self.first_name, self.last_name, self.mobile_phone, self.work_phone, self.email, self.twitter_handle)
 		# OR
-		print "\nFirst Name     :", self.first_name.capitalize()
-		print "Last Name      :", self.last_name.capitalize()
+		print "\nFirst Name     :", self.first_name.title()
+		print "Last Name      :", self.last_name.title()
 		print "Mobile Phone   :", self.mobile_phone
 		print "Work Phone     :", self.work_phone
 		print "Email          :", self.email

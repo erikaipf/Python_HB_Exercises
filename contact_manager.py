@@ -3,8 +3,8 @@ from contact import*
 address_book = []
 
 def display_contact_info(first_name, last_name, mobile_phone, work_phone, email, twitter_handle):
-	print "\nFirst Name     :", first_name.capitalize()
-	print "Last Name      :", last_name.capitalize()
+	print "\nFirst Name     :", first_name.title()
+	print "Last Name      :", last_name.title()
 	print "Mobile Phone   :", mobile_phone
 	print "Work Phone     :", work_phone
 	print "Email          :", email
